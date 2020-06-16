@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 
+<bean id="emp1" class="Employee">
+<property name="eno" value="100"></property>
+<property name="ename" value="shiva"></property>
+<property name="sal" value="2500"></property>
+<property name="desig" value="teamMember"></property>
+<property name="hno" value="1-53-A"></property>
+<property name="city" value="Hyd"></property>
+</bean>
+
+<bean id="emp2" class="Employee">
+<property name="eno" value="101"></property>
+<property name="ename" value="sirisha"></property>
+<property name="sal" value="2500"></property>
+<property name="desig" value="teamMember"></property>
+<property name="hno" value="1-53-B"></property>
+<property name="city" value="Hyd"></property>
+</bean>
+
+<bean id="emp3" class="Employee">
+<property name="eno" value="102"></property>
+<property name="ename" value="rani"></property>
+<property name="sal" value="2500"></property>
+<property name="desig" value="teamMember"></property>
+<property name="hno" value="1-53-C"></property>
+<property name="city" value="Hyd"></property>
+</bean>
+-->
+<!-- 
+	 
+	 In the above configuration all the three employees hving same city,desig,sala, so why dontwe reuse the bean configuration.
+	 To reuse the bean configuration <bean>tag has parent attribute.
+	 now we will rewrite the bean configuration file by useing emp1 bean configuration to emp2,emp3
+	  -->
+   
+<bean id="emp1" class="Employee">
+<property name="eno" value="100"></property>
+<property name="ename" value="shiva"></property>
+<property name="sal" value="2500"></property>
+<property name="desig" value="teamMember"></property>
+<property name="hno" value="1-53-A"></property>
+<property name="city" value="Hyd"></property>
+</bean>
+
+<bean id="emp2" class="Employee" parent="emp1">
+<property name="eno" value="101"></property>
+<property name="ename" value="sirisha"></property>
+<property name="hno" value="1-53-B"></property>
+
+</bean>
+
+<bean id="emp3" class="Employee" parent="emp1">
+<property name="eno" value="102"></property>
+<property name="ename" value="rani"></property>
+<property name="hno" value="1-53-C"></property>
+
+</bean>
+</beans>
